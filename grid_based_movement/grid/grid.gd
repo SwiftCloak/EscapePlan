@@ -22,12 +22,23 @@ func request_move(pawn, direction):
 		CellType.EMPTY:
 			return update_pawn_position(pawn, cell_start, cell_target)
 		CellType.OBJECT:
-			var object_pawn = get_cell_pawn(cell_target)
-			object_pawn.queue_free()
-			return update_pawn_position(pawn, cell_start, cell_target)
+			var pawn_name = get_cell_pawn(cell_start).name
+			if(pawn_name == "Actor"):
+				var object_pawn = get_cell_pawn(cell_target)
+				object_pawn.queue_free()
+				print("PRISONER WIN")
+				variable.gameState = 2
+				return update_pawn_position(pawn, cell_start, cell_target)
+			else:
+				print("YOU CAN'T GO HERE")
+				variable.turn -= 1
 		CellType.ACTOR:
 			var pawn_name = get_cell_pawn(cell_target).name
 			print("Cell %s contains %s" % [cell_target, pawn_name])
+			print("PRISONER LOSE, WARDEN WIN")
+			variable.winner = 1
+			variable.gameState = 2
+			
 
 
 func update_pawn_position(pawn, cell_start, cell_target):

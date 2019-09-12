@@ -7,16 +7,21 @@ func _ready():
 
 
 func _process(_delta):
-	var input_direction = get_input_direction()
-	if not input_direction:
-		return
-	update_look_direction(input_direction)
+	if(variable.turn == 0):
+		
+	
+		var input_direction = get_input_direction()
+		if not input_direction:
+			return
+		update_look_direction(input_direction)
 
-	var target_position = Grid.request_move(self, input_direction)
-	if target_position:
-		move_to(target_position)
+		var target_position = Grid.request_move(self, input_direction)
+		if target_position:
+			move_to(target_position)
+		else:
+			bump()
 	else:
-		bump()
+		pass
 
 
 func get_input_direction():
@@ -44,10 +49,9 @@ func move_to(target_position):
 
 	# Stop the function execution until the animation finished
 	yield($AnimationPlayer, "animation_finished")
-	if(turn == 0):
-		turn = turn+1
-	else:
-		return
+	
+		
+	variable.turn +=1
 	set_process(true)
 
 

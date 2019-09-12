@@ -1,13 +1,16 @@
-extends Node
+extends AcceptDialog
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var turn = 0
-var winner = 0
-var gameState = 0
-# Called when the node enters the scene tree for the first time.
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func _process(delta):
+	if(variable.gameState == 2):
+		popup_centered_ratio(0.25)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
