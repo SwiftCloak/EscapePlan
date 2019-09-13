@@ -1,0 +1,204 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Label.gd" type="Script" id=2]
+[ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://grid/grid.gd" type="Script" id=4]
+[ext_resource path="res://pawns/Actor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pawns/new_script.gd" type="Script" id=6]
+[ext_resource path="res://pawns/Actor.tres" type="Animation" id=7]
+[ext_resource path="res://pawns/walk.tres" type="Animation" id=8]
+[ext_resource path="res://pawns/sprites/character_grey.png" type="Texture" id=9]
+[ext_resource path="res://pawns/pawn.gd" type="Script" id=10]
+[ext_resource path="res://pawns/sprites/star.png" type="Texture" id=11]
+[ext_resource path="res://Node.gd" type="Script" id=12]
+[ext_resource path="res://Popup.gd" type="Script" id=13]
+[ext_resource path="res://Label2.gd" type="Script" id=14]
+[ext_resource path="res://AcceptDialog.gd" type="Script" id=15]
+[ext_resource path="res://Label3.gd" type="Script" id=16]
+[ext_resource path="res://rsz_192717-vertebrate-television-twitch-reptile-emote-free-png-hq.png" type="Texture" id=17]
+[ext_resource path="res://buttons/NewGameButton.tscn" type="PackedScene" id=18]
+[ext_resource path="res://buttons/ContinueButton.tscn" type="PackedScene" id=19]
+[ext_resource path="res://buttons/OptionsButton.tscn" type="PackedScene" id=20]
+[ext_resource path="res://rsz_kisspng-godot-game-engine-video-game-3d-computer-graphics-5b41a745d2aa377564848115310293178629.png" type="Texture" id=21]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Game" type="Node"]
+
+[node name="GridLines" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.271059 )
+z_index = -1
+z_as_relative = false
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="GridLines"]
+margin_left = 1.16943
+margin_top = 79.4319
+margin_right = 142.169
+margin_bottom = 154.432
+script = ExtResource( 2 )
+
+[node name="Grid" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 65538, 1, 0, 65552, 1, 0, 131074, 1, 0, 131088, 1, 0, 196610, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196624, 1, 0, 262146, 1, 0, 262151, 1, 0, 262160, 1, 0, 327682, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327696, 1, 0, 393218, 1, 0, 393232, 1, 0, 458754, 1, 0, 458768, 1, 0, 524290, 1, 0, 524304, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Actor" parent="Grid" instance=ExtResource( 5 )]
+position = Vector2( 357.274, 221.518 )
+
+[node name="Sprite" parent="Grid/Actor/Pivot" index="0"]
+scale = Vector2( 1.20007, 0.917384 )
+
+[node name="Actor2" type="Node2D" parent="Grid"]
+position = Vector2( 480, 480 )
+z_index = 1
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Grid/Actor2"]
+anims/bump = ExtResource( 7 )
+anims/walk = ExtResource( 8 )
+
+[node name="Tween" type="Tween" parent="Grid/Actor2"]
+
+[node name="Node2D" type="Position2D" parent="Grid/Actor2"]
+
+[node name="Sprite" type="Sprite" parent="Grid/Actor2/Node2D"]
+texture = ExtResource( 9 )
+
+[node name="Object" type="Node2D" parent="Grid"]
+editor/display_folded = true
+position = Vector2( 544, 288 )
+script = ExtResource( 10 )
+type = 2
+
+[node name="Sprite" type="Sprite" parent="Grid/Object"]
+texture = ExtResource( 11 )
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+margin_left = 482.492
+margin_top = 42.1362
+margin_right = 711.492
+margin_bottom = 154.136
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Popup"]
+margin_right = 138.0
+margin_bottom = 58.0
+script = ExtResource( 14 )
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 729.002
+margin_top = 257.001
+margin_right = 812.002
+margin_bottom = 315.001
+script = ExtResource( 15 )
+
+[node name="Label2" type="Label" parent="AcceptDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 75.0
+margin_bottom = 22.0
+script = ExtResource( 16 )
+
+[node name="TitleScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="TitleScreen"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1160.0
+margin_bottom = 640.0
+
+[node name="Logo" type="TextureRect" parent="TitleScreen/Menu"]
+margin_right = 1040.0
+margin_bottom = 256.0
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="TitleScreen/Menu"]
+margin_top = 260.0
+margin_right = 1040.0
+margin_bottom = 585.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="TitleScreen/Menu/CenterRow"]
+editor/display_folded = true
+margin_right = 518.0
+margin_bottom = 325.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NewGameButton" parent="TitleScreen/Menu/CenterRow/Buttons" instance=ExtResource( 18 )]
+margin_top = 52.0
+margin_right = 518.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 360, 60 )
+
+[node name="ContinueButton" parent="TitleScreen/Menu/CenterRow/Buttons" instance=ExtResource( 19 )]
+margin_top = 132.0
+margin_right = 518.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 360, 60 )
+
+[node name="OptionsButton" parent="TitleScreen/Menu/CenterRow/Buttons" instance=ExtResource( 20 )]
+margin_top = 212.0
+margin_right = 518.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 360, 60 )
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleScreen/Menu/CenterRow"]
+editor/display_folded = true
+margin_left = 522.0
+margin_right = 1040.0
+margin_bottom = 325.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Characters" type="TextureRect" parent="TitleScreen/Menu/CenterRow/CenterContainer"]
+margin_left = 96.0
+margin_right = 421.0
+margin_bottom = 325.0
+texture = ExtResource( 21 )
+
+[node name="FadeIn" type="ColorRect" parent="TitleScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleScreen/FadeIn"]
+anims/fade_in = SubResource( 1 )
+
+[editable path="Grid/Actor"]
