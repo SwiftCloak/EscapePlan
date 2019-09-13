@@ -102,8 +102,10 @@ margin_bottom = 315.001
 script = ExtResource( 15 )
 
 [node name="Label2" type="Label" parent="AcceptDialog"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 75.0
+margin_bottom = 22.0
 script = ExtResource( 16 )
 
 [editable path="Grid/Actor"]
